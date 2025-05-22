@@ -8,18 +8,18 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
-export const Assistant = () => {
+export const Assistant = ({user}:any) => {
   const runtime = useChatRuntime({
-    api: "/api/chat",
+    api: `/api/chat?userId=${user.id}`,
   });
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
       <SidebarProvider>
-        <AppSidebar />
+        {/* <AppSidebar /> */}
         <SidebarInset>
-          <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-            <SidebarTrigger />
+          {/* <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+            {/* <SidebarTrigger /> 
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
@@ -36,7 +36,7 @@ export const Assistant = () => {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
-          </header>
+          </header> */}
           <Thread />
         </SidebarInset>
       </SidebarProvider>
