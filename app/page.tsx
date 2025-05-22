@@ -26,9 +26,9 @@ export  default function Home() {
   return (
     <div>
       {user ? (
-        <Assistant user={user}/>
+        <Assistant user={user} />
       ) : (
-        <p >Loading...</p>
+        <div className="w-24 h-24 border-8 border-t-8 border-gray-200 border-t-gray-500 rounded-full animate-spin mx-auto my-24"></div>
       )}
     </div>
   );
