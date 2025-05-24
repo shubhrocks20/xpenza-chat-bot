@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
   if (!context) {
     console.log("Fetching user context from backend");
-    const res = await fetch(`http://localhost:3012/api/v1/users/user-context`, {
+    const res = await fetch(`${process.env.XPENZA_BACKEND_URI}/users/user-context`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
