@@ -2,16 +2,19 @@
 import { Assistant } from "./assistant";
 
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-export  default function Home() {
+export default function Home() {
   const [user, setUser] = useState(null);
+
+  const parentUrl = process.env.NEXT_PUBLIC_XPENZA_FRONTEND_URI || "http://localhost:5173"; // 👈 Replace with your parent app's URL
+
   useEffect(() => {
-    window.parent.postMessage({ type: "READY" }, "http://localhost:5173"); // parent origin
+    window.parent.postMessage({ type: "READY" }, parentUrl); // parent origin
 
     const handleMessage = (event: MessageEvent) => {
-      // 👇 Replace with your outer React app's origin
-      if (event.origin !== "http://localhost:5173") return;
+
+      if (event.origin !== parentUrl) return;
 
       if (event.data.type === "USER_INFO") {
         console.log("Received user data:", event.data.payload);
