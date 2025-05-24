@@ -1,10 +1,9 @@
 "use client";
 import { Assistant } from "./assistant";
 
+import { useEffect, useState } from "react";
 
-import { use, useEffect, useState } from "react";
-
-export  default function Home() {
+export default function Home() {
   const [user, setUser] = useState(null);
   useEffect(() => {
     window.parent.postMessage({ type: "READY" }, "http://localhost:5173"); // parent origin
