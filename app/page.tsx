@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [user, setUser] = useState(null);
 
-  const parentUrl = process.env.NEXT_PUBLIC_XPENZA_FRONTEND_URI || "http://localhost:5173"; // 👈 Replace with your parent app's URL
+  const parentUrl = process.env.NEXT_PUBLIC_XPENZA_FRONTEND_URI || "http://localhost:5173"; 
 
   useEffect(() => {
     window.parent.postMessage({ type: "READY" }, parentUrl); // parent origin
